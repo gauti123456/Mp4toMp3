@@ -12,6 +12,16 @@ const bodyParser = require('body-parser')
 
 const app = express()
 
+var dir = 'public';
+var subDirectory = 'public/uploads'
+
+if (!fs.existsSync(dir)){
+    fs.mkdirSync(dir);
+
+    fs.mkdirSync(subDirectory)
+
+}
+
 var storage = multer.diskStorage({
     destination: function (req, file, cb) {
       cb(null, 'public/uploads')
